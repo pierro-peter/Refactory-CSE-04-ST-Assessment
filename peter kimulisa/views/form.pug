@@ -1,0 +1,54 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title RIM Aviation Flight Booking
+  link(rel='stylesheet' href='styles.css')
+  
+h1 ONLINE FLIGHT BOOKING FORM
+p
+  | Please fill out the form below to complete your flight reservation. Fields marked with an asterisk (*) are required.
+form#flightBookingForm(action='/submitBooking' method='POST' enctype='multipart/form-data')
+  // Passenger Information Section
+  fieldset
+    legend PASSENGER INFORMATION
+    label(for='fullName') Full Name*:
+    input#fullName(type='text' name='fullName' placeholder='John Doe' required='')
+    label(for='gender') Gender*:
+    select#gender(name='gender' required='')
+      option(value='') Select Gender
+      option(value='Male') Male
+      option(value='Female') Female
+      option(value='Other') Other
+    label(for='dob') Date of Birth*:
+    input#dob(type='date' name='dob' required='')
+    label(for='nationality') Nationality*:
+    input#nationality(type='text' name='nationality' placeholder='Country of Origin' required='')
+  // Contact Information Section
+  fieldset
+    legend CONTACT INFORMATION
+    label(for='phone') Phone Number*:
+    input#phone(type='tel' name='phone' placeholder='+123 456 7890' required='')
+    label(for='email') Email Address*:
+    input#email(type='email' name='email' placeholder='your.email@example.com' required='')
+    label(for='pobox') P.O. Box Address (Optional):
+    input#pobox(type='text' name='pobox' placeholder='1234')
+    label(for='emergencyPhone') Emergency Phone Number*:
+    input#emergencyPhone(type='tel' name='emergencyPhone' placeholder='+256 987 6543' required='')
+  // Flight Information Section
+  fieldset
+    legend FLIGHT INFORMATION
+    label(for='passportNumber') Passport Number*:
+    input#passportNumber(type='text' name='passportNumber' placeholder='Passport Number' required='')
+    label(for='visaDocument') Visa Document* (PDF, JPG):
+    input#visaDocument(type='file' name='visaDocument' accept='.pdf,.jpg,.jpeg,.png' required='')
+    label(for='departureCity') Departure City*:
+    input#departureCity(type='text' name='departureCity' placeholder='Departure City' required='')
+    label(for='destinationCity') DestinationCity*:
+    input#destinationCity(type='text' name='destinationCity' placeholder='Destination City' required='')
+  // Form Buttons
+  .buttons
+    button.submit-btn(type='submit') Submit 
+    
+script(src='script.js')
+
